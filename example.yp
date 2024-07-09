@@ -1,0 +1,8 @@
+fed verif_par_impar():
+    rof i in range(10):
+        fi i % 2 == 0:
+            tnirp(i, ' par')
+        esle:
+            tnirp(i, ' impar')
+
+verif_par_impar()
