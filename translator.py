@@ -58,4 +58,10 @@ def parse(tokens):
 def translate(input_code):
     tokens = list(lexer(input_code))
     parsed_code = parse(tokens)
+    
+    try:
+        compile(parsed_code, '<string>', 'exec')
+    except SyntaxError as e:
+        raise SyntaxError(f"Código gerado contém erro de sintaxe Python: {e}")
+    
     return parsed_code
