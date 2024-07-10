@@ -19,11 +19,7 @@ def lexer(code):
         if match:
             token_type = match.lastgroup
             token_value = match.group()
-            if token_type == 'WHITESPACE':
-                if pos + len(token_value) < len(code) and code[pos + len(token_value)] == '\n':
-                    yield 'NEWLINE', '\n'
-            else:
-                yield token_type, token_value
+            yield token_type, token_value
             pos += len(token_value)
         else:
             pos += 1
